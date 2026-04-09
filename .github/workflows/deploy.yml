@@ -18,20 +18,21 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler
 
-      - name: Deploy to Cloudflare (Keep All Settings)
+      - name: Deploy to Cloudflare (cf-new)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           echo "🚀 开始部署 Worker..."
           echo "📋 部署信息:"
-          echo "  - Worker名称: cf"
-          echo "  - 域名: cf.3727547.xyz (保持不变)"
-          echo "  - 所有环境变量: 保持不变"
-          echo "  - 访问密码: 保持不变"
+          echo "  - Worker名称: cf-new"
+          echo "  - 版本: BPB Panel v4.1.3"
           echo ""
-          wrangler deploy _worker.js --name cf --compatibility-date 2024-01-01 --keep-vars
+          wrangler deploy _worker.js --name cf-new --compatibility-date 2024-01-01
           echo ""
           echo "✅ 部署完成！"
-          echo "🌐 访问地址: https://cf.3727547.xyz/panel"
-          echo "🔑 密码: 保持不变"
+          echo "🌐 默认域名: https://cf-new.你的账户.workers.dev/panel"
+          echo "🔑 请在Cloudflare Dashboard设置环境变量:"
+          echo "   - UUID"
+          echo "   - TR_PASS"
+          echo "   - PROXY_IP"
