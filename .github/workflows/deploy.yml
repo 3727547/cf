@@ -30,7 +30,7 @@ jobs:
           echo "  - 所有环境变量: 保持不变"
           echo "  - 访问密码: 保持不变"
           echo ""
-          wrangler deploy --name cf --compatibility-date 2024-01-01 --keep-vars
+          wrangler deploy _worker.js --name cf --compatibility-date 2024-01-01 --keep-vars
           echo ""
           echo "✅ 部署完成！"
           echo "🌐 访问地址: https://cf.3727547.xyz/panel"
